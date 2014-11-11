@@ -16,43 +16,47 @@ class TodoApp < CommandLineApp
   end
 
   def create
-    # => Create a new Project instance
+      # => Create a new Project instance
     @project = Project.new
     puts "Please enter the new project name:"
     @project.name = gets.chomp
-
-    # => Add instance to a hash
+      # => Add instance to a hash
     @project_list["#{@project.name}"] = @project
     puts "Projects:\n  #{@project.name}"
   end
 
-  def delete
-
-  end
-
   def rename
-    # => Get name of project to be changed
+      # => Get name of project to be changed
     puts "Please enter the project name to rename:"
     old_name = gets.chomp
-
-    # => Get new project name to set
+      # => Get new project name to set
     puts "Please enter the new project name:"
     new_name = gets.chomp
-
-    # => Set the new name using hash[key - old_name]
+      # => Set the new name using hash[key - old_name]
     @project_list[old_name] = new_name
-
     puts "Projects:\n  #{@project_list[old_name]}"
   end
 
+  def edit
+      # => Get name of project to be edited
+    puts "Please enter the project name to edit:"
+    project_to_edit = gets.chomp
+    puts "Editing Project: #{@project_list[project_to_edit].name}"
+    option = gets.chomp
+    if option == "back"
+      # => welcome menu
+    end
+
+      # => add back option
+  end
+  
+
   def delete
-    # => Get name of project to be changed
+      # => Get name of project to be changed
     puts "Please enter the project name to delete:"
     delete_project = gets.chomp
-
-    # => Delete the new name using hash[key - old_name]
+      # => Delete the new name using hash[key - old_name]
     @project_list.delete(delete_project)
-
     puts "Projects:\n  none"
   end
 
@@ -62,6 +66,7 @@ class TodoApp < CommandLineApp
       puts "  none"
     else
       @project_list
+      # => add list of tasks for speciifc project
     end
   end
 
@@ -85,11 +90,14 @@ class TodoApp < CommandLineApp
         rename
       end
 
+      if input == "edit"
+        edit
+      end
+
       if input == "delete"
         delete
       end
 
     end until input == "quit"
-
   end
 end

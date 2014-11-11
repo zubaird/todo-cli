@@ -20,7 +20,7 @@ describe TodoApp do
         expect(output).to include("Editing Project: Chores")
       end
 
-      xit "gives instruction for listing tasks" do
+      it "gives instruction for listing tasks" do
         simulate_user_input(project_setup_commands, 'back', 'quit')
         app.run
 
