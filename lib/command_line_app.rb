@@ -13,4 +13,6 @@ class CommandLineApp
     @input = input
     @output = output
   end
+
+
 end

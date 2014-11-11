@@ -13,7 +13,7 @@ describe TodoApp do
     let(:task_creation_commands) { ['create', 'do the laundry', 'create', 'iron shirts'] }
 
     describe 'new menu when editing a project' do
-      xit "includes the project name" do
+      it "includes the project name" do
         simulate_user_input(project_setup_commands, 'back', 'quit')
         app.run
 

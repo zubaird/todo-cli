@@ -13,7 +13,6 @@ describe TodoApp do
       it "shows an empty list when there are no projects" do
         simulate_user_input("list", "quit")
         app.run
-
         expect(output).to include("Projects:\n  none")
       end
     end
@@ -29,7 +28,7 @@ describe TodoApp do
     end
 
     describe 'renaming projects' do
-      xit "existing projects can be renamed" do
+      it "existing projects can be renamed" do
         simulate_user_input(
           "create", "Chores",
           "rename", "Chores", "Groceries",
@@ -45,7 +44,7 @@ describe TodoApp do
     end
 
     describe 'deleting projects' do
-      xit "existing projects can be removed" do
+      it "existing projects can be removed" do
         simulate_user_input(
           "create", "Chores",
           "delete", "Chores",
