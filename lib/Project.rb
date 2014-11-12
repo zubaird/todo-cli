@@ -1,10 +1,14 @@
+require_relative "./Task"
+
 class Project
 
-  attr_accessor :name, :description
+  attr_accessor :name, :tasks
 
   def initialize
     @name = name
-    @description = description
+    @tasks = []
   end
+
+
 
 end
